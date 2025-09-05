@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plataforma Verificada</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root{
+      --wa-green: #25D366;
+      --wa-green-dark: #1ebe57;
+      --wa-green-soft: #e9f9ef;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--white);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    header {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .logo-text {
+      color: var(--wa-green);
+      font-weight: 700;
+      font-size: 26px;
+    }
+
+    hr {
+      width: 100%;
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 20px 0 10px;
+    }
+
+    .verified {
+      text-align: center;
+      padding-top: 10px;
+    }
+
+    .verified img {
+      width: 64px;
+      height: 64px;
+      margin: 12px 0 10px;
+    }
+
+    .verified h2 {
+      font-size: 22px;
+      margin: 6px 0 4px;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .verified .green {
+      color: var(--wa-green);
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .message {
+      background: var(--wa-green-soft);
+      padding: 14px 18px;
+      border-radius: 14px;
+      margin: 22px 0 24px;
+      font-size: 16px;
+      color: var(--text);
+      border: 1px solid #d9f3e3;
+      max-width: 640px;
+    }
+
+    .whatsapp-button {
+      background-color: var(--wa-green);
+      color: #ffffff;
+      padding: 18px 30px;
+      border-radius: 999px;
+      font-weight: 800;
+      letter-spacing: .3px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+      min-width: 260px;
+      box-shadow: 0 8px 20px rgba(37,211,102,0.25);
+    }
+
+    .whatsapp-button:hover {
+      transform: translateY(-2px);
+      background-color: var(--wa-green-dark);
+      box-shadow: 0 12px 26px rgba(37,211,102,0.32);
+    }
+
+    .whatsapp-button:active {
+      transform: translateY(0);
+    }
+
+    .whatsapp-button i {
+      margin-right: 10px;
+      font-size: 22px;
+    }
+
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45); }
+      70%  { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+    .whatsapp-button.pulse { animation: pulse 2.2s infinite; }
+
+    .clientes {
+      background-color: #f3f4f6;
+      color: var(--text);
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .clientes::before{
+      content:"\f0c0";
+      font: normal 16px/1 "Font Awesome 6 Free";
+      font-weight: 900;
+      color: var(--text);
+      opacity:.85;
+    }
+
+    .trustpilot {
+      font-size: 14px;
+      padding: 12px 16px;
+      border: 1px dashed #cbd5e1;
+      border-radius: 14px;
+      margin-bottom: 18px;
+      text-align: center;
+      color: var(--muted);
+      background: #fafafa;
+      max-width: 680px;
+    }
+
+    .trustpilot img {
+      margin-top: 8px;
+      max-width: 160px;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: var(--wa-green);
+      color: #ffffff;
+      text-align: center;
+      padding: 10px;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: .2px;
+    }
+
+    @media (max-width: 600px) {
+      .whatsapp-button {
+        font-size: 16px;
+        padding: 16px 24px;
+        min-width: 220px;
+      }
+      .clientes {
+        font-size: 14px;
+        padding: 10px 16px;
+      }
+      .message {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-text">Plataforma Verificada</div>
+  </header>
+
+  <hr />
+
+  <section class="verified">
+    <!-- Logo: mantiene target="_blank" como tenías, pero ahora también rota y abre WA -->
+    <a href="#" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" width="64" height="64" />
+    </a>
+    <h2>✅ <b>Plataforma Verificada</b> ✅</h2>
+    <p class="green">Casino de Confianza</p>
+  </section>
+
+  <div class="message">
+    Te estamos conectando con nuestro equipo vía WhatsApp.
+  </div>
+
+  <a id="whatsapp-button"
+    class="whatsapp-button pulse"
+    target="_blank" 
+    rel="noopener noreferrer"
+    href="https://wa.me/5491124986158?text=Quiero%20el%20bono%20del%2020%25" >
+    <i class="fab fa-whatsapp"></i> ¡QUIERO MI BONO! </a>
+  <div class="clientes">
+    +10.000 CLIENTES GANANDO todos los días
+  </div>
+
+  <div class="trustpilot">
+    "Excelente" ⭐⭐⭐⭐⭐ Calificación 4.9/5 en Trustpilot<br/>
+    <img src="https://logowik.com/content/uploads/images/trustpilot-stars9095.jpg" alt="Trustpilot" />
+  </div>
+
+  <div class="footer">
+    🎁 BONO ACTIVO - ¡Solicítalo ahora por WhatsApp!
+  </div>
+
+  <!-- Script mínimo: conserva tu forma de abrir, agrega conversión y rota también el logo -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const whatsappNumbers = [
+    "549", // 1
+    "549", // 2
+    "5491", // 3
+    "549114", // 4  
+    "54911"  // 5
+  ];
+  const message = "Quiero el bono del 20%";
+  let currentIndex = 0;
+
+  // --- BOTÓN PRINCIPAL ---
+  const whatsappBtn = document.getElementById("whatsapp-button");
+  if (whatsappBtn) {
+    // href inicial por si alguien copia el link
+    whatsappBtn.href = `https://wa.me/${whatsappNumbers[currentIndex]}?text=${encodeURIComponent(message)}`;
+
+    whatsappBtn.addEventListener("click", function () {
+      const number = whatsappNumbers[currentIndex];
+      currentIndex = (currentIndex + 1) % whatsappNumbers.length;
+      const url = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+
+      try {
+        fbq('track', 'Lead', {content_name: 'ContactClick', phone: number});
+        fbq('trackCustom', 'ContactClick', {phone: number});
+      } catch(_) {}
+
+      this.setAttribute("href", url); // el target="_blank" abre la nueva pestaña
+    });
+  }
+
+  // --- LOGO WHATSAPP ---
+  const waLogo = document.querySelector(".verified a");
+  if (waLogo) {
+    waLogo.addEventListener("click", function (e) {
+      const number = whatsappNumbers[currentIndex];
+      currentIndex = (currentIndex + 1) % whatsappNumbers.length;
+      const url = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+
+      try {
+        fbq('track', 'Lead', {content_name: 'ContactClick', phone: number});
+        fbq('trackCustom', 'ContactClick', {phone: number});
+      } catch(_) {}
+
+      this.setAttribute("href", url);
+    });
+  }
+});
+</script>
+
+</body>
+</html>
+
